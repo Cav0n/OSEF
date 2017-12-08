@@ -8,5 +8,14 @@
 
 class Admin
 {
-
+    public static function isAdmin() : bool
+    {
+        if (isset($_SESSION['role']) && $_SESSION['role'] == "admin")
+        {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }

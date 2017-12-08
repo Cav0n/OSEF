@@ -1,0 +1,18 @@
+startElement : Balise ouvrante
+endElement : Balise fermante
+
+startElement($parser, $name, $attrs) 
+
+Si $name == "item" -> on est au debut d'une news donc new News();
+Si $name == "link" -> Rajouter boolean initialiser a true 
+
+endElement($name)
+
+if $name == "item" -> stocker $n en base (DAL) ou dans un tableau (favoriser base)
+Si $name == "link" -> le boolean a false
+
+
+characterData($data)
+
+Si (le booléen de link)
+-> set link($data)

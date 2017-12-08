@@ -27,4 +27,7 @@
                         </article>';
         }
     }
+    else{
+        require('index.php');
+    }
     ?>

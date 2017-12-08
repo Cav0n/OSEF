@@ -43,7 +43,6 @@ class NewsGateway
 
         $dsn = "mysql:host=localhost;dbname=$base";
         $con = new Connexion($dsn, $login, $mdp);
-
         $query = 'INSERT INTO news VALUES(:titre,:adresse,:categorie,:description)';
         $con->executeQuery($query, array(
             ':titre' => array($titre, PDO::PARAM_STR),
