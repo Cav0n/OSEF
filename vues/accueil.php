@@ -76,7 +76,7 @@
                             ?>
 
 						</div>
-                        <a href="index.php">2 <?php $_SESSION['page']=2 ?></a>
+                        <a href="index.php"></a>
 					</div>
 
 				<!-- Footer -->

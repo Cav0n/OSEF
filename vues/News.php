@@ -3,7 +3,7 @@
         $tabNews = $_SESSION['tabNews'];
         $nbNews = $_SESSION['nbNews'];
         $page = $_SESSION['page'];
-        for ($i = (10*$page-9); $i < 10*$page; $i++) {
+        for ($i = 0; $i < $nbNews; $i++) {
             $titre = $tabNews[$i]['titre'];
             $description = $tabNews[$i]['description'];
             $lien = $tabNews[$i]['lien'];

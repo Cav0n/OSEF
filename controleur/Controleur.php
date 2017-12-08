@@ -7,7 +7,7 @@
             global $rep, $vues; // nécessaire pour utiliser variables globales
             // on démarre ou reprend la session si necessaire (préférez utiliser un modèle pour gérer vos session ou cookies)
             session_start();
-
+            //Faire du GET pour obtenir la page
             $_SESSION['page'] = 1;
 
 
@@ -42,6 +42,7 @@
                         unset($_SESSION['name']);
                         unset($_SESSION['role']);
                         unset($_SESSION['email']);
+                        unset($_SESSION['nbNews']);
                         require($rep . $vues['accueil']);
                         break;
 
@@ -82,7 +83,7 @@
 
 		function ValidationLogin($email, $password){
 			global $rep,$vues;
-			require_once('metier/;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; LoginGateway.php');
+			require_once('metier/LoginGateway.php');
 			try {
                 $loginArray = LoginGateway::Connect($email, $password);
                 $_SESSION['name'] = $loginArray['name'];
