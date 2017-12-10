@@ -43,9 +43,9 @@
 						<h2>Menu</h2>
 						<ul>
 							<li><a href="accueil.html">Home</a></li>
-							<li><a href="vues/generic.html">Ipsum veroeros</a></li>
-							<li><a href="generic.html">Tempus etiam</a></li>
+							<li><a href="vues/generic.html">Ajouts</a></li>
 						</ul>
+                        <?php require('vues/Connexion.php'); ?>
 					</nav>
 
 				<!-- Main -->
@@ -82,37 +82,6 @@
 				<!-- Footer -->
                 <footer id="footer">
                     <div class="inner">
-                        <?php
-                        if (isset($_SESSION['name']) && $_SESSION['role'] != "FAUX") {
-                            $name = $_SESSION['name'];
-                            echo "<H2>$name</H2>";
-                            echo
-                            '<section>
-                                    <form method="post" action="#">
-                                        <ul class="actions">
-                                            <li><input type="submit" name="action" value="Deconnexion" class="special" /></li>
-                                        </ul>
-                                    </form>
-							    </section>';
-                        }
-                        else {
-                            echo
-                            '<section>
-								<h2>Connexion</h2>
-								<form method="post" action="#">
-									<div class="field">
-										<input type="email" name="email" id="email" placeholder="Email" />
-									</div>
-									<div class="field">
-										<input type="password" name="password" id="password" placeholder="Mot de Passe"></input>
-									</div>
-									<ul class="actions">
-										<li><input type="submit" name="action" value="Connexion" class="special" /></li>
-									</ul>
-								</form>
-							</section>';
-                        }
-                        ?>
 							<section>
 								<h2>Suivez-nous</h2>
 								<ul class="icons">
