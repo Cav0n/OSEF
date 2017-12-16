@@ -3,6 +3,7 @@
 Projet de site web gérant des news en PHP.
 
 Fonctionnalités :
+
 	Mode administrateur :
 	Ajout de News
 	Suppression de News
