@@ -1,25 +1,26 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: Cav0n
+ * Date: 15/12/2017
+ * Time: 10:56
+ */
 
 //gen
 $rep=__DIR__.'/../';
 
 // liste des modules à inclure
 
-//$dConfig['includes']= array('controleur/Validation.php');
-
-
-
 //BD
-
 $base="dbflbernard";
 $login="flbernard";
-$mdp="flbernard";
+$password="flbernard";
 
 //Vues
-
 $vues['erreur']='vues/erreur.php';
-$vues['vuephp1']='vues/vuephp1.php';
-$vues['accueil']='vues/accueil.php'
+$vues['accueil']='vues/accueil.php';
+$vues['connexion']='vues/connexion.php';
 
+$_POST['nbNewsParPage'] = 5;
 
 ?>

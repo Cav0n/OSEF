@@ -2,48 +2,39 @@
 /**
  * Created by PhpStorm.
  * User: Cav0n
- * Date: 03/12/2017
- * Time: 10:42
+ * Date: 15/12/2017
+ * Time: 11:09
  */
 
 class LoginGateway
 {
-
     public function __construct()
     {
 
     }
 
-    public static function Connect($email, $password): array
+    public static function Connect($email): Admin
     {
         global $rep,$vues;
-        require_once('Connexion.php');
-        global $login, $mdp, $base;
+        global $login, $password, $base;
 
         $dsn = "mysql:host=localhost;dbname=$base";
-        $con = new Connexion($dsn, $login, $mdp);
+        $con = new Connexion($dsn, $login, $password);
 
-        $query = 'SELECT role, name FROM users WHERE login=:email AND mdp=:password';
+        $query = 'SELECT mdp FROM admin WHERE Email=:email';
+
+        //NETTOYAGE DE l'EMAIL A FAIRE
 
         $con->executeQuery($query, array(
-            ':email' => array($email, PDO::PARAM_STR),
-            ':password' => array($password, PDO::PARAM_STR)));
+            ':email' => array($email, PDO::PARAM_STR)));
 
         $results = $con->getResults();
         if ($results == null) {
-            $loginArray['role'] = "FAUX";
-            throw new Exception("Login ou mot de passe incorrect!");
+            return new Admin("NULL", "");
         }
         else {
-            foreach ($results as $row) {
-                $roleUsers = $row['role'];
-                $nameUsers = $row['name'];
-            }
-            $loginArray['name'] = $nameUsers;
-            $loginArray['role'] = $roleUsers;
-            $loginArray['email'] = $email;
-            return $loginArray;
+            $mdp = $results['0']['mdp'];
+            return new Admin($email, $mdp);
         }
     }
-
 }

@@ -1,10 +1,16 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: Cav0n
+ * Date: 15/12/2017
+ * Time: 10:56
+ */
 
 class Autoload
 {
-        private static $_instance = null;
+    private static $_instance = null;
 
-        public static function charger()
+    public static function charger()
     {
         if(null !== self::$_instance) {
             throw new RuntimeException(sprintf('%s is already started', __CLASS__));
@@ -18,7 +24,7 @@ class Autoload
         }
     }
 
-        public static function shutDown()
+    public static function shutDown()
     {
         if(null !== self::$_instance) {
 
@@ -30,22 +36,19 @@ class Autoload
         }
     }
 
-        private static function _autoload($class)
+    private static function _autoload($class)
     {
         global $rep;
         $filename = $class.'.php';
-        $dir =array('modeles/','./','config/','controleur/','metier');
+        $dir =array('modele/','./','config/','controleur/','metier/');
         foreach ($dir as $d){
-        $file=$rep.$d.$filename; 
-        //echo $file;
-        if (file_exists($file))
-        {
-            include $file;
+            $file=$rep.$d.$filename;
+            //echo $file;
+            if (file_exists($file))
+            {
+                include $file;
+            }
         }
-        }
-    
+
     }
 }
-
-
-?>

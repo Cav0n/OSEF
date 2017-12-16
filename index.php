@@ -1,8 +1,10 @@
 <?php
-//si controller pas objet
-//  header('Location: controller/controller.php');
-
-//si controller objet
+/**
+ * Created by PhpStorm.
+ * User: Cav0n
+ * Date: 15/12/2017
+ * Time: 10:55
+ */
 
 //chargement config
 require_once(__DIR__.'/config/config.php');
@@ -14,4 +16,4 @@ Autoload::charger();
 $cont = new FrontControleur();
 
 
-?> 
+?>

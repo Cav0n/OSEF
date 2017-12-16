@@ -1,9 +1,9 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: flbernard
- * Date: 01/12/17
- * Time: 14:10
+ * User: Cav0n
+ * Date: 15/12/2017
+ * Time: 11:14
  */
 
 class NewsGateway
@@ -16,33 +16,31 @@ class NewsGateway
     public static function Journaliste() :array
     {
         global $rep, $vues;
-        require_once('metier/Connexion.php');
-        global $login, $mdp, $base;
+        global $login, $password, $base;
         $dsn = "mysql:host=localhost;dbname=$base";
-        $con = new Connexion($dsn, $login, $mdp);
-        $query = 'SELECT titre, lien, categorie, description FROM news';
+        $con = new Connexion($dsn, $login, $password);
+        $query = 'SELECT titre, url, categorie, description FROM news';
         $con->executeQuery($query);
         $results = $con->getResults();
         $i = 0;
         foreach ($results as $row) {
             $tabNews[$i]['titre'] = $row['titre'];
-            $tabNews[$i]['lien'] = $row['lien'];
+            $tabNews[$i]['lien'] = $row['url'];
             $tabNews[$i]['categorie'] = $row['categorie'];
             $tabNews[$i]['description'] = $row['description'];
             $i++;
         }
-        $_SESSION['nbNews'] = $i;
-        $_SESSION['tabNews'] = $tabNews;
+        $_POST['nbNews'] = $i;
+        $_POST['tabNews'] = $tabNews;
         return $tabNews;
     }
 
     public static function Ajouter($titre, $description, $adresse, $categorie) {
         global $rep, $vues;
-        require_once('metier/Connexion.php');
-        global $login, $mdp, $base;
+        global $login, $password, $base;
 
         $dsn = "mysql:host=localhost;dbname=$base";
-        $con = new Connexion($dsn, $login, $mdp);
+        $con = new Connexion($dsn, $login, $password);
         $query = 'INSERT INTO news VALUES(:titre,:adresse,:categorie,:description)';
         $con->executeQuery($query, array(
             ':titre' => array($titre, PDO::PARAM_STR),
@@ -54,11 +52,10 @@ class NewsGateway
     public static function Supprimer($titre)
     {
         global $rep, $vues;
-        require_once('metier/Connexion.php');
-        global $login, $mdp, $base;
+        global $login, $password, $base;
 
         $dsn = "mysql:host=localhost;dbname=$base";
-        $con = new Connexion($dsn, $login, $mdp);
+        $con = new Connexion($dsn, $login, $password);
         $query = 'DELETE FROM news WHERE titre=:titre ';
         $con->executeQuery($query, array(':titre' => array($titre, PDO::PARAM_STR)));
 

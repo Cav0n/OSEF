@@ -1,21 +1,22 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: flbernard
- * Date: 01/12/17
- * Time: 14:07
+ * User: Cav0n
+ * Date: 15/12/2017
+ * Time: 11:57
  */
 
-class ControlAdmin
+class AdminModele
 {
-    public function __construct()
-    {
-
+    public static function Deconnexion(){
+        global $rep, $vues;
+        unset($_SESSION['admin']);
+        new UserControleur(NULL);
     }
 
     public static function AjouterNews(){
         require_once('metier/Admin.php');
-        if(Admin::isAdmin())
+        if(isset($_SESSION['admin']) && $_SESSION['admin'] != null)
         {
             $titre = $_POST['titre'];
             $description = $_POST['description'];
@@ -24,7 +25,7 @@ class ControlAdmin
             global $rep, $vues;
             require_once('metier/NewsGateway.php');
             NewsGateway::Ajouter($titre, $description, $adresse, $categorie);
-            require($rep.$vues['accueil']);
+            new UserControleur(NULL);
         }
         else {
             throw new Exception("Vous n'êtes pas admin!");
@@ -33,16 +34,13 @@ class ControlAdmin
 
     public static function SupprimerNews(){
         require_once('metier/Admin.php');
-        if(Admin::isAdmin()) {
-            $titre = $_POST['name'];
-            global $rep, $vues;
-            require_once('metier/NewsGateway.php');
+        if(isset($_SESSION['admin']) && $_SESSION['admin']->isAdmin()) {
+            $titre = $_GET['titre'];
             NewsGateway::Supprimer($titre);
-            require($rep . $vues['accueil']);
+            new UserControleur(NULL);
         }
         else {
             throw new Exception("Vous n'êtes pas admin!");
         }
     }
-
 }

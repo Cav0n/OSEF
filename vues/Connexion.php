@@ -5,9 +5,8 @@
  * Date: 08/12/2017
  * Time: 16:37
  */
-if (isset($_SESSION['name']) && $_SESSION['role'] != "FAUX") {
-    $name = $_SESSION['name'];
-    echo "<H2>$name</H2>";
+if (isset($_SESSION['admin']) && $_SESSION['admin'] != null) {
+    echo "<H2>ADMIN</H2>";
     echo
     '<section>
         <form method="post" action="#">
@@ -20,13 +19,13 @@ if (isset($_SESSION['name']) && $_SESSION['role'] != "FAUX") {
 else {
     echo
     '<section>
-		<h2> Connection</h2>
+		<h2> Connexion</h2>
 			<form method="post" action="#">
 				<div class="field">
 					<input type="email" name="email" id="email" placeholder="Email" />
 				</div>
 				<div class="field">
-					<input type="password" name="password" id="password" placeholder="Mot de Passe"></input>
+					<input type="password" name="mdp" id="mdp" placeholder="Mot de Passe"></input>
 				</div>
 				<ul class="actions">
 					<li><input type="submit" name="action" value="Connexion" class="special" /></li>

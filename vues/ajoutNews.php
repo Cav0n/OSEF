@@ -26,7 +26,7 @@ echo '
                 <option value="Travail">Travail</option>
               </select>
 			<ul class="actions">
-				<li><input type="submit" name="action" value="Ajout" class="special" /></li>
+				<li><input type="submit" name="action" value="AjouterNews" class="special" /></li>
 		    </ul>
 		</form>
 </section>';
