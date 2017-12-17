@@ -1,3 +1,13 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Cav0n
+ * Date: 17/12/2017
+ * Time: 11:48
+ */
+
+?>
+
 <!DOCTYPE HTML>
 <!--
 	Phantom by HTML5 UP
@@ -45,35 +55,22 @@
             <li><a href="#">Accueil</a></li>
             <li><a href="?action=Administration">Administration</a></li>
         </ul>
-        <?php require('vues/connexion.php'); ?>
-        <?php require('vues/register.php'); ?>
     </nav>
 
     <!-- Main -->
     <div id="main">
         <div class="inner">
             <header>
-                <h1>Bienvenue sur OSEF<br />
-                    crée par  <a href="index.php">Lucas B. et Florian B.</a>.</h1>
-                    <p>Vous retrouverez sur ce site pleins de news inutiles.</p>
+                <h1>Connexion requise<br /></h1>
+                <h2>Veuillez vous connecter pour accéder à cette page.</h2>
             </header>
-            <section class="tiles">
-                <?php require('vues/News.php'); ?>
-            </section>
+            <?php require('Connexion.php');?>
         </div>
         <a href="index.php"></a>
     </div>
 
     <!-- Footer -->
     <footer id="footer">
-        <?php //Listes des pages
-        $nbNews = $_POST['nbNews'];
-        $nbNewsParPage = ConfigGateway::NbNewsParPage();
-        $nbPage = ceil($nbNews / $nbNewsParPage);
-        for($i=1; $i<=$nbPage; $i++){
-            echo '<a href="?page='."$i".'">'."$i".' </a>';
-        }
-        ?>
         <div class="inner">
             <section>
                 <h2>Suivez-nous</h2>

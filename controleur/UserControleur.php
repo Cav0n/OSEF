@@ -19,6 +19,10 @@ class UserControleur
                     UserModele::RechercheNews();
                     break;
 
+                case "Auth";
+                    UserModele::Auth();
+                    break;
+
                 case "Connexion":
                     UserModele::Connexion();
                     break;

@@ -30,7 +30,7 @@ class FrontControleur {
             $page = 1;
         }
 
-        $listeAction_Admin = array('AjouterNews','SupprimerNews','Deconnexion');
+        $listeAction_Admin = array('AjouterNews','SupprimerNews','Deconnexion', 'Administration', 'AjouterRSS', 'SupprimerRSS', 'CompterNews', 'ChangerNbNews');
 
         try {
             if(isset($_REQUEST['action'])){
@@ -45,8 +45,7 @@ class FrontControleur {
                     new AdminControleur($action);
                 }
                 else {
-                    $dVueErreur[] = "Vous n'êtes pas connecté!";
-                    require($rep.$vues['erreur']);
+                    new UserControleur("Auth");
                 }
             }
             else {

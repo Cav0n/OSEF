@@ -1,0 +1,14 @@
+PHP :
+
+1) Faire une vraie partie admin. // FAIT
+2) Ajout / Suppression de flux RSS d'un site. // FAIT
+3) Modification du nombre de news par page. // FAIT
+4) Afficher les news par ordre chronologique. // FAIT
+5) Afficher l'heure, le site, le titre, la description.
+6) Optimisation BD.
+
+Optionnelle : Parser
+
+1) Lit en BD la liste des sites.
+2) Se connecte sur le flux RSS et récupère le contenu XML.
+3) Parse le contenu XML. -> Met à jour les News en BD.

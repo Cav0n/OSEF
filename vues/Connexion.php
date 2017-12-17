@@ -17,6 +17,7 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] != null) {
 	</section>';
 }
 else {
+    if (isset($_POST['erreurLogin'])){ echo $_POST['erreurLogin']; unset($_POST['erreurLogin']); };
     echo
     '<section>
 		<h2> Connexion</h2>
@@ -25,7 +26,7 @@ else {
 					<input type="email" name="email" id="email" placeholder="Email" />
 				</div>
 				<div class="field">
-					<input type="password" name="mdp" id="mdp" placeholder="Mot de Passe"></input>
+					<input type="password" name="mdp" id="mdp" placeholder="Mot de Passe">
 				</div>
 				<ul class="actions">
 					<li><input type="submit" name="action" value="Connexion" class="special" /></li>

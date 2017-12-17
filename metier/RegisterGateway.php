@@ -8,13 +8,15 @@
 
 class RegisterGateway
 {
-    public static function Register(String $email,String $mdp,String $nom){
-        $mdphash = password_hash($mdp,PASSWORD_DEFAULT);
-        global $rep, $vues;
+    public static function Register(String $email,String $mdp,String $nom)
+    {
         global $login, $password, $base;
-
         $dsn = "mysql:host=localhost;dbname=$base";
         $con = new Connexion($dsn, $login, $password);
+
+        // Cryptage du mot de passe
+        $mdphash = password_hash($mdp,PASSWORD_DEFAULT);
+
         $query = 'INSERT INTO admin VALUES(:email,:mdp,:nom)';
         $con->executeQuery($query, array(
             ':email' => array($email, PDO::PARAM_STR),

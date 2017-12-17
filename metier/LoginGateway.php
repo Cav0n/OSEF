@@ -21,10 +21,8 @@ class LoginGateway
         $dsn = "mysql:host=localhost;dbname=$base";
         $con = new Connexion($dsn, $login, $password);
 
+        //NETTOYAGE DE l'EMAIL A FAIRE ET DU MDP
         $query = 'SELECT mdp FROM admin WHERE Email=:email';
-
-        //NETTOYAGE DE l'EMAIL A FAIRE
-
         $con->executeQuery($query, array(
             ':email' => array($email, PDO::PARAM_STR)));
 

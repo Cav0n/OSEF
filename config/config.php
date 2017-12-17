@@ -5,7 +5,6 @@
  * Date: 15/12/2017
  * Time: 10:56
  */
-
 //gen
 $rep=__DIR__.'/../';
 
@@ -20,7 +19,6 @@ $password="flbernard";
 $vues['erreur']='vues/erreur.php';
 $vues['accueil']='vues/accueil.php';
 $vues['connexion']='vues/connexion.php';
-
-$_POST['nbNewsParPage'] = 5;
-
+$vues['administration']='vues/adminPage.php';
+$vues['authPage'] = 'vues/authPage.php';
 ?>

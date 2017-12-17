@@ -22,11 +22,11 @@ class UserModele
                     $_SESSION['admin'] = $a;
                 }
                 else{
-                    echo 'Mot de passe incorrect.';
+                    $_POST['erreurLogin'] = "Mot de passe incorrect";
                 }
             }
             else{
-                echo 'Email incorrect.';
+                $_POST['erreurLogin'] = "Email incorrect";
             }
         }
         catch(PDOException $e){
@@ -37,12 +37,27 @@ class UserModele
             $dVueErreur[] = $e2;
             require ($rep.$vues['erreur']);
         }
-        self::RechercheNews();
+        if(isset($_POST['next'])){
+            require($rep.$vues[$_POST['next']]);
+        }
+        else {
+            self::RechercheNews();
+        }
     }
+
+    public static function Auth()
+    {
+        global $rep, $vues;
+        $_POST['next'] = "adminPage";
+        require($rep.$vues['authPage']);
+    }
+
 
     public static function RechercheNews(){
         global $rep, $vues;
-        $tabNews = NewsGateway::Journaliste();
+        $results = NewsGateway::Journaliste();
+        $_POST['tabNews'] = $results[1];
+        $_POST['nbNews'] = $results[2];
         require($rep.$vues['accueil']);
     }
 

@@ -18,12 +18,32 @@ class AdminControleur
                     AdminModele::Deconnexion();
                     break;
 
+                case "Administration":
+                    AdminModele::Administration();
+                    break;
+
+                case "AjouterRSS":
+                    AdminModele::AjouterRSS();
+                    break;
+
+                case "SupprimerRSS":
+                    AdminModele::SupprimerRSS();
+                    break;
+
                 case "AjouterNews":
                     AdminModele::AjouterNews();
                     break;
 
                 case "SupprimerNews":
                     AdminModele::SupprimerNews();
+                    break;
+
+                case "CompterNews":
+                    AdminModele::CompterNews();
+                    break;
+
+                case "ChangerNbNews":
+                    AdminModele::ChangerNbNewsParPage();
                     break;
             }
         }

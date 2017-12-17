@@ -7,9 +7,7 @@ if (isset($_POST['tabNews'])) {
     {
         $nbNews = $_POST['nbNews'];
     }
-    if(isset($_POST['nbNewsParPage'])){
-        $nbNewsParPage = $_POST['nbNewsParPage'];
-    }
+    $nbNewsParPage = ConfigGateway::NbNewsParPage();
     if(isset($_GET['page'])){
         $page = $_GET['page'];
     }
