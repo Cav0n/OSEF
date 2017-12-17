@@ -5,6 +5,14 @@
  * Date: 08/12/2017
  * Time: 16:37
  */
+if (isset($_POST['erreurLogin']) && $_POST['erreurLogin'] != null){
+    $erreur = $_POST['erreurLogin'];
+    unset($_POST['erreurLogin']);
+}
+else{
+    $erreur = "";
+}
+
 if (isset($_SESSION['admin']) && $_SESSION['admin'] != null) {
     echo "<H2>ADMIN</H2>";
     echo
@@ -17,10 +25,10 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] != null) {
 	</section>';
 }
 else {
-    if (isset($_POST['erreurLogin'])){ echo $_POST['erreurLogin']; unset($_POST['erreurLogin']); };
     echo
     '<section>
-		<h2> Connexion</h2>
+		<h2> Connexion</h2>'."
+		<h4>$erreur</h4>".'
 			<form method="post" action="#">
 				<div class="field">
 					<input type="email" name="email" id="email" placeholder="Email" />

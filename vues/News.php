@@ -23,6 +23,14 @@ if (isset($_POST['tabNews'])) {
             $description = $tabNews[$i]['description'];
             $lien = $tabNews[$i]['lien'];
             $categorie = $tabNews[$i]['categorie'];
+            $date = $tabNews[$i]['date'];
+
+            if(isset($_SESSION['admin']) && $_SESSION['admin']->isAdmin()){
+                $boutonSupprimer = '<a  href="?action=SupprimerNews&titre='."$titre".'"width="50" height="50" >Supprimer</a>';
+            }
+            else{
+                $boutonSupprimer = "";
+            }
 
             //Pour afficher 10 news par pages :
             //News Max : 10*page -1
@@ -34,15 +42,15 @@ if (isset($_POST['tabNews'])) {
                                 <img src="vues/images/Actus.jpg" alt="" />
                             </span>'."
                             <a href=$lien>
+                                <h4>$date</h4>
                                 <h2>$titre</h2>".'
                                 <div class="content">'."
                                     $description".'
                                 </div>
                             </a>
-                        </article>';
-                        if(isset($_SESSION['admin']) && $_SESSION['admin']->isAdmin()){
-                        echo '<a  href="?action=SupprimerNews&titre='."$titre".'"width="50" height="50" >Supprimer</a>';
-                        }
+                        </article>
+                        '."$boutonSupprimer";
+
         }
     }
 }

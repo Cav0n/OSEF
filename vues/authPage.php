@@ -37,25 +37,7 @@
             <a href="index.php" class="logo">
                 <span class="symbol"><img src="vues/images/logo.svg" alt="" /></span><span class="title">OSEF</span>
             </a>
-
-            <!-- Nav -->
-            <nav>
-                <ul>
-                    <li><a href="#menu">Menu</a></li>
-                </ul>
-            </nav>
-
-        </div>
     </header>
-
-    <!-- Menu -->
-    <nav id="menu">
-        <h2>Menu</h2>
-        <ul>
-            <li><a href="#">Accueil</a></li>
-            <li><a href="?action=Administration">Administration</a></li>
-        </ul>
-    </nav>
 
     <!-- Main -->
     <div id="main">
@@ -64,7 +46,7 @@
                 <h1>Connexion requise<br /></h1>
                 <h2>Veuillez vous connecter pour accéder à cette page.</h2>
             </header>
-            <?php require('Connexion.php');?>
+            <?php $_POST['source']="authPage"; require('Connexion.php');?>
         </div>
         <a href="index.php"></a>
     </div>

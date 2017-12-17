@@ -37,12 +37,7 @@ class UserModele
             $dVueErreur[] = $e2;
             require ($rep.$vues['erreur']);
         }
-        if(isset($_POST['next'])){
-            require($rep.$vues[$_POST['next']]);
-        }
-        else {
-            self::RechercheNews();
-        }
+        self::RechercheNews();
     }
 
     public static function Auth()

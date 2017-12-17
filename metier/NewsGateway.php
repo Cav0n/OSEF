@@ -33,7 +33,7 @@ class NewsGateway
         $con = new Connexion($dsn, $login, $password);
         $tabNews = array();
 
-        $query = 'SELECT titre, url, categorie, description FROM news ORDER BY date';
+        $query = 'SELECT titre, url, categorie, description, date FROM news ORDER BY date DESC';
         $con->executeQuery($query);
         $results = $con->getResults();
 
@@ -43,6 +43,7 @@ class NewsGateway
             $tabNews[$i]['lien'] = $row['url'];
             $tabNews[$i]['categorie'] = $row['categorie'];
             $tabNews[$i]['description'] = $row['description'];
+            $tabNews[$i]['date'] = $row['date'];
             $i++;
         }
         $results[1] = $tabNews;
