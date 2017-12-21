@@ -6,9 +6,10 @@
  * Time: 11:12
  */
 
+///Gateway pour gerer les flux dans la base
 class FluxGateway
 {
-    public static function Ajouter($adresse, $nom)
+    public static function Ajouter($adresse, $nom) //Function pour ajouter un flux RSS dans la base
     {
         global $login, $password, $base;
 
@@ -20,7 +21,7 @@ class FluxGateway
         $con->executeQuery($query, array(
             ':url' => array($adresse, PDO::PARAM_STR)));
         $results = $con->getResults();
-        if ($results != NULL) {
+        if ($results != NULL) { //Verifie si l'adresse n'est pas déjà dans la base
             return 'L\'adresse existe déjà dans la base.';
         }
 
@@ -29,7 +30,7 @@ class FluxGateway
         $con->executeQuery($query, array(
             ':nom' => array($nom, PDO::PARAM_STR)));
         $results = $con->getResults();
-        if ($results != NULL) {
+        if ($results != NULL) { //Verifie si le nom n'est pas déjà dans la base
             return 'Le nom existe déjà dans la base.';
         }
 
@@ -40,7 +41,7 @@ class FluxGateway
             ':nom' => array($nom, PDO::PARAM_STR)));
     }
 
-    public static function RechercherTout(){
+    public static function RechercherTout(){ //Fonction pour rechercher tout les flux de la base
         global $login, $password, $base;
         $dsn = "mysql:host=localhost;dbname=$base";
         $con = new Connexion($dsn, $login, $password);
@@ -62,7 +63,7 @@ class FluxGateway
         return $results;
     }
 
-    public static function Supprimer($nom, $url){
+    public static function Supprimer($nom, $url){ //Fonction pour supprimer un flux RSS dans la base
         global $login, $password, $base;
 
         $dsn = "mysql:host=localhost;dbname=$base";

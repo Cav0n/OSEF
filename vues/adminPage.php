@@ -54,7 +54,7 @@
             <li><a href="?action=">Accueil</a></li>
             <li><a href="#">Administration</a></li>
         </ul>
-        <?php require('vues/connexion.php'); ?>
+        <?php require('vues/Connexion.php'); ?>
         <?php require('vues/register.php'); ?>
     </nav>
 
@@ -75,6 +75,7 @@
                     <select name="nbNewsParPage">
                         <?php
                         $nbNews = AdminModele::CompterNews();
+                        if ($nbNews > 20){ $nbNews = 20; }
                         for($i = 1; $i <= $nbNews; $i++)
                         {
                             echo '<option value="'."$i".'">'."$i".'</option>';

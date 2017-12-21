@@ -13,8 +13,8 @@ class UserControleur
         global $rep, $vues;
         $dVueErreur = array();
 
+        try {
             switch ($action) {
-
                 case NULL:
                     UserModele::RechercheNews();
                     break;
@@ -31,5 +31,14 @@ class UserControleur
                     UserModele::Register();
                     break;
             }
+        }
+        catch (PDOException $e) {
+        $dVueErreur[] = "Base de données: ".$e;
+        require($rep . $vues['erreur']);
+
+        } catch (Exception $e2) {
+            $dVueErreur[] = $e2;
+            require($rep . $vues['erreur']);
+        }
     }
 }

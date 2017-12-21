@@ -39,7 +39,7 @@ if (isset($_POST['tabNews'])) {
             echo '
                         <article class="style1">
                             <span class="image">
-                                <img src="vues/images/Actus.jpg" alt="" />
+                                <img src="vues/images/'.$categorie.'.png" alt="" />
                             </span>'."
                             <a href=$lien>
                                 <h4>$date</h4>

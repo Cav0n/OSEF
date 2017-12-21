@@ -8,10 +8,15 @@
 
 class Admin
 {
-    private $email;
-    private $mdp;
-    private $b;
+    private $email; //email de l'admin
+    private $mdp; //mot de passe de l'admin
+    private $b; //vrai si admin, faux si pas admin
 
+    public function __construct(String $email, String $mdp) {
+        $this->email = $email;
+        $this->mdp = $mdp;
+        $this->b = false;
+    }
 
     public function getEmail() : String {
         return $this->email;
@@ -23,12 +28,6 @@ class Admin
 
     public function setAdmin(){
         $this->b = true;
-    }
-
-    public function __construct(String $email, String $mdp) {
-        $this->email = $email;
-        $this->mdp = $mdp;
-        $this->b = false;
     }
 
     public function isAdmin() : bool {

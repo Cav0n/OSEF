@@ -8,11 +8,14 @@
 
 class RegisterGateway
 {
-    public static function Register(String $email,String $mdp,String $nom)
+    public static function Register(String $email,String $mdp,String $nom) //Création d'un nouvel admin dans la base
     {
         global $login, $password, $base;
         $dsn = "mysql:host=localhost;dbname=$base";
         $con = new Connexion($dsn, $login, $password);
+
+        Validation::sanitizeEmail($email);
+        Validation::sanitizeEmail($nom);
 
         // Cryptage du mot de passe
         $mdphash = password_hash($mdp,PASSWORD_DEFAULT);

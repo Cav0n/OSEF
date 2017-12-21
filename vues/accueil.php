@@ -45,7 +45,7 @@
             <li><a href="#">Accueil</a></li>
             <li><a href="?action=Administration">Administration</a></li>
         </ul>
-        <?php require('vues/connexion.php'); ?>
+        <?php require('vues/Connexion.php'); ?>
         <?php require('vues/register.php'); ?>
     </nav>
 

@@ -10,9 +10,10 @@ class AdminControleur
 {
     public function __construct($action)
     {
+        global $rep, $vues;
         $dVueErreur = array();
+
         try {
-            global $rep, $vues;
             switch ($action) {
                 case "Deconnexion":
                     AdminModele::Deconnexion();
@@ -46,9 +47,12 @@ class AdminControleur
                     AdminModele::ChangerNbNewsParPage();
                     break;
             }
-        }
-        catch(Exception $e){
-            $dVueErreur[] = $e;
+        } catch (PDOException $e) {
+            $dVueErreur[] = "Base de données: ".$e;
+            require($rep . $vues['erreur']);
+
+        } catch (Exception $e2) {
+            $dVueErreur[] = $e2;
             require($rep . $vues['erreur']);
         }
     }

@@ -5,12 +5,10 @@
  * Date: 15/12/2017
  * Time: 10:56
  */
-//gen
+//Repertoire courant
 $rep=__DIR__.'/../';
 
-// liste des modules à inclure
-
-//BD
+//Base de données
 $base="dbflbernard";
 $login="flbernard";
 $password="flbernard";

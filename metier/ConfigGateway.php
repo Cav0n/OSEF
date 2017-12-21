@@ -6,6 +6,8 @@
  * Time: 16:09
  */
 
+///Gateway permettant la configuration de divers paramètres dans la base
+///Uniquement le nombre de news page pour l'instant
 class ConfigGateway
 {
     public function __construct()
@@ -13,7 +15,7 @@ class ConfigGateway
 
     }
 
-    public static function NbNewsParPage() :int
+    public static function NbNewsParPage() :int //Fonction pour afficher le nombre de news par page
     {
         global $login, $password, $base;
         $dsn = "mysql:host=localhost;dbname=$base";
@@ -28,7 +30,7 @@ class ConfigGateway
         return $nbNewsParPage;
     }
 
-    public static function ModifNbNewsParPage($nb)
+    public static function ModifNbNewsParPage($nb) //Fonction pour modifier le nombre de news par page dans la base
     {
         global $login, $password, $base;
 

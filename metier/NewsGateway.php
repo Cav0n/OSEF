@@ -13,7 +13,7 @@ class NewsGateway
 
     }
 
-    public static function NombreNews() :int
+    public static function NombreNews() :int //Renvoie le nombre de news qu'il y a dans la base
     {
         global $login, $password, $base;
         $dsn = "mysql:host=localhost;dbname=$base";
@@ -26,7 +26,7 @@ class NewsGateway
         return $results[0]['count(titre)'];
     }
 
-    public static function Journaliste() :array
+    public static function Journaliste() :array //Renvoie un tableau avec les news récupérées dans la base.
     {
         global $login, $password, $base;
         $dsn = "mysql:host=localhost;dbname=$base";
@@ -52,7 +52,7 @@ class NewsGateway
         return $results;
     }
 
-    public static function Ajouter($titre, $description, $adresse, $categorie, $date)
+    public static function Ajouter($titre, $description, $adresse, $categorie, $date) //Ajoute une news dans la base
     {
         global $login, $password, $base;
 
@@ -79,7 +79,7 @@ class NewsGateway
         }
     }
 
-    public static function Supprimer($titre)
+    public static function Supprimer($titre) //Supprime une news dans la base
     {
         global $rep, $vues;
         global $login, $password, $base;
